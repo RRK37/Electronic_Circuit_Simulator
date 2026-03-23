@@ -1,8 +1,8 @@
 # Electronic Circuit Simulator
 
-A frequency-domain AC circuit simulator that models arbitrary linear networks using **ABCD transmission matrices**. Reads SPICE-like netlists, cascades two-port networks via matrix multiplication, and sweeps across frequency to produce full impedance, voltage, current, power, and gain characteristics.
+Filters, amplifiers, transmission lines, and impedance matching networks all exhibit behaviour that only reveals itself across frequency. This simulator models arbitrary linear networks as cascaded **ABCD transmission matrices** -- a formulation where resistors, capacitors, inductors, and conductances all reduce to the same 2x2 matrix framework, and complex multi-stage circuits assemble by matrix multiplication alone. A single RC low-pass and a 100-section LC ladder network (a discrete transmission line) require no different treatment -- just more multiplications.
 
-Built in Python with NumPy for complex arithmetic and matrix operations.
+Reads SPICE-like netlists, sweeps across frequency, and produces full impedance, voltage, current, power, and gain characteristics as CSV output. Built in Python with NumPy.
 
 ---
 
@@ -65,18 +65,6 @@ S = V \cdot I^* = P + jQ
 $$
 
 where $P$ is real (dissipated) power and $Q$ is reactive power.
-
----
-
-## Why This Matters
-
-Simulating circuits in the frequency domain is foundational to electrical engineering. Filters, amplifiers, transmission lines, and matching networks all exhibit behaviour that only becomes visible when you sweep across frequency. The ABCD matrix approach is particularly elegant because:
-
-- **Composability** -- complex circuits are built from simple building blocks via matrix multiplication, mirroring how physical circuits are assembled from discrete stages.
-- **Generality** -- resistors, capacitors, inductors, and conductances all fit the same two-port framework. Adding a new component type means defining one 2x2 matrix.
-- **Scalability** -- a 100-element ladder network requires no special handling; it's just 100 matrix multiplications per frequency point.
-
-This makes it practical to explore how a circuit's gain rolls off, where resonant peaks appear, how impedance matching degrades, and what happens to phase across a bandwidth -- all from a simple text-based netlist description.
 
 ---
 
