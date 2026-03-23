@@ -6,7 +6,7 @@ Reads SPICE-like netlists, sweeps across frequency, and produces full impedance,
 
 ---
 
-## The Mathematics
+## Formulation
 
 ### Two-Port Network Representation
 
@@ -120,10 +120,3 @@ CSV files with real/imaginary (or magnitude-dB/phase) columns for each requested
 | `Av`   | Voltage gain | $R_L / (AR_L + B)$ |
 | `Ai`   | Current gain | $1 / (CR_L + D)$ |
 
----
-
-## Dependencies
-
-- Python 3
-- NumPy
-- Matplotlib (for plotting)
